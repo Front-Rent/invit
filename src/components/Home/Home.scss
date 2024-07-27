@@ -8,5 +8,8 @@
   &-ul {
     gap: 20px;
     display: flex;
+    & > li {
+      color: white;
+    }
   }
 }
