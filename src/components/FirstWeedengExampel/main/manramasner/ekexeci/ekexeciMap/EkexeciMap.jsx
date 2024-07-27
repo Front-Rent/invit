@@ -1,3 +1,5 @@
+import "./EkexeciMap.scss";
+
 const EkexeciMap = () => {
   return (
     <section className="manramasner-map-form">

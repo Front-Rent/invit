@@ -17,17 +17,27 @@ import "./EsHamadzaynEmForm.scss";
 
 const EsHamadzaynEmForm = ({ handleHidden }) => {
   const dispatch = useDispatch();
-  const { usernameValue, phoneNumberValue, guestsValue, isSubmitting } =
-    useSelector((state) => state.form);
+  const {
+    usernameValue,
+    phoneNumberValue,
+    guestsValue,
+    isSubmitting,
+    error,
+    success,
+  } = useSelector((state) => state.form);
 
+  // Проверка на корректность имени
   const isValidName = (input) => {
     const words = input.trim().split(" ");
     return words.length >= 2 && words[0] !== "" && words[1] !== "";
   };
 
+  // Проверка на корректность номера телефона
   const isValidPhoneNumber = (number) => {
-    const regex = /^\+374(94|93|91|77|43|98)\d{6}$/;
-    return regex.test(number.replace(/[^\d]/g, ""));
+    // Удаление всех нечисловых символов перед проверкой
+    const cleanedNumber = number.replace(/\D/g, "");
+    const regex = /^374(94|93|91|77|43|98|55|33|44|49)\d{6}$/;
+    return regex.test(cleanedNumber);
   };
 
   const handleSubmit = async (e) => {
@@ -47,23 +57,27 @@ const EsHamadzaynEmForm = ({ handleHidden }) => {
     }
 
     if (!isValidPhoneNumber(phoneNumberValue)) {
-      dispatch(setError("Խնդրում ենք մուտքագրել ճիշտ հեռախոսահամար:"));
+      dispatch(setError("Խնդրում ենք մուտքագրել ճիշտ հեռախոսահամար."));
       dispatch(setIsSubmitting(false));
       return;
     }
 
     try {
-      await axios.post("http://localhost:5000/submit-form", {
+      const response = await axios.post("http://localhost:5000/submit-form", {
         username: usernameValue,
-        phoneNumber: phoneNumberValue,
+        phoneNumber: phoneNumberValue.replace(/\D/g, ""),
         guests: guestsValue,
       });
 
-      dispatch(setSuccess("Форма успешно отправлена!"));
-      dispatch(setError(""));
-      dispatch(setIsSended(true));
-      dispatch(resetForm());
-      handleHidden();
+      if (response.data.error) {
+        dispatch(setError(response.data.error));
+      } else {
+        dispatch(setSuccess("Форма успешно отправлена!"));
+        dispatch(setError(""));
+        dispatch(setIsSended(true));
+        dispatch(resetForm());
+        handleHidden();
+      }
     } catch (error) {
       if (error.response && error.response.status === 400) {
         dispatch(setError(error.response.data));
@@ -78,6 +92,8 @@ const EsHamadzaynEmForm = ({ handleHidden }) => {
 
   return (
     <form className="paper-content" onSubmit={handleSubmit}>
+      {error && <div className="error-message">{error}</div>}
+      {success && <div className="success-message">{success}</div>}
       <input
         type="text"
         id="username"
@@ -88,13 +104,12 @@ const EsHamadzaynEmForm = ({ handleHidden }) => {
         required
       />
       <InputMask
-        mask="+374 (99) 99 99 99"
-        maskChar="_"
+        mask="+374 99 999999"
+        value={phoneNumberValue}
+        onChange={(e) => dispatch(setPhoneNumberValue(e.target.value))}
         className="paper-content-phone"
         id="phoneNumber"
         placeholder="Մուտքագրեք ձեր հեռախոսահամարը"
-        value={phoneNumberValue}
-        onChange={(e) => dispatch(setPhoneNumberValue(e.target.value))}
         required
       >
         {(inputProps) => <input {...inputProps} type="tel" />}
@@ -109,7 +124,7 @@ const EsHamadzaynEmForm = ({ handleHidden }) => {
       />
       <div className="button-div">
         <Button type="submit" disabled={isSubmitting}>
-          {/* Отправить */}
+          Ուղարկել հայտը
         </Button>
       </div>
     </form>
