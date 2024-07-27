@@ -30,3 +30,33 @@
     outline: none;
   }
 }
+
+@media screen and (max-width: 1080px) {
+  .paper-content-username,
+  .paper-content-guests,
+  .paper-content-phone {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .paper-content-username,
+  .paper-content-guests,
+  .paper-content-phone {
+    width: 100%;
+    padding: 5px 20px 5px 10px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .paper-content-username,
+  .paper-content-guests,
+  .paper-content-phone {
+    width: 100%;
+  }
+
+  .paper-content {
+    padding-top: 2px;
+  }
+}

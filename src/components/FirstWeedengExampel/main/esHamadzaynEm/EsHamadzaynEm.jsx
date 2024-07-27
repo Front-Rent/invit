@@ -41,8 +41,6 @@ const EsHamadzaynEm = () => {
           նստատեղերի աղյուսակը կազմելուհամար։ Շնորհակալություն!
         </p>
 
-        {/* Отображение сообщения об ошибке или успехе, если они существуют */}
-
         <div className="envelope">
           <animated.div
             className="envelope-flap"

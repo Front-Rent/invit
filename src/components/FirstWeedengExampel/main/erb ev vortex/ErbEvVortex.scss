@@ -10,7 +10,7 @@
   gap: 40px;
   transition: all 0.4s ease;
   position: relative;
-  
+
   > h2 {
     font-size: 36px;
     text-align: center;
@@ -78,6 +78,54 @@
     h2 {
       font-size: 24px;
       margin: 5px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .erb-ev-vortex {
+    gap: 30px;
+    transition: all 0.5s ease;
+
+    > h2 {
+      font-size: 32px;
+      transition: font-size 0.5s ease;
+    }
+
+    &-or {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.5s ease;
+
+      .amis,
+      .jam {
+        font-size: 28px;
+        margin: 10px 0;
+        transition: font-size 0.5s ease, margin 0.5s ease;
+      }
+
+      .between-box {
+        width: 100%;
+        padding: 15px;
+        transition: width 0.5s ease, padding 0.5s ease;
+
+        .shabatva-or,
+        .tari {
+          font-size: 16px;
+          transition: font-size 0.5s ease;
+        }
+
+        .or {
+          font-size: 28px;
+          transition: font-size 0.5s ease;
+        }
+      }
+    }
+
+    &-restoran h2 {
+      font-size: 22px;
+      transition: font-size 0.5s ease;
     }
   }
 }

@@ -5,6 +5,9 @@ import "./Home.scss";
 const Home = () => {
   return (
     <nav className="home-nav">
+      <div className="header-nav-logo">
+        <img src="" alt="" />
+      </div>
       <ul className="home-nav-ul">
         <li>
           <Link>Birthday</Link>

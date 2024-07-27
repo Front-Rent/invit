@@ -1,11 +1,14 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useSpring, animated } from "@react-spring/web";
 import { useInView } from "react-intersection-observer";
+
 import {
   updateTimer,
   resetTimer,
 } from "../../../../store/timerSlice/timerSlice";
+
 import "./Hethashvark.scss";
 
 const Hethashvark = () => {
@@ -43,14 +46,14 @@ const Hethashvark = () => {
         );
       }
     }, 1000);
-  }, [dispatch]); // Зависимость от dispatch
+  }, [dispatch]);
 
   useEffect(() => {
-    startTimer(); // Теперь startTimer мемоизирована и не вызывает лишних ререндеров
+    startTimer();
     return () => {
       clearInterval(intervalRef.current);
     };
-  }, [startTimer]); // startTimer в списке зависимостей
+  }, [startTimer]);
 
   const { ref, inView } = useInView({
     triggerOnce: true,

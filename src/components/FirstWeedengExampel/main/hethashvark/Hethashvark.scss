@@ -49,3 +49,46 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 1080px) {
+  .hethashvark {
+    .base {
+      width: 20%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .hethashvark {
+    height: 500px;
+
+    &-base {
+      height: 300px;
+      flex-wrap: wrap;
+
+      .base {
+        height: 110px;
+        width: 40%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hethashvark {
+    height: 950px;
+
+    &-base {
+      height: 600px;
+      flex-wrap: wrap;
+
+      .base {
+        height: 120px;
+        width: 100%;
+      }
+    }
+    &-header p {
+      font-size: 18px;
+    }
+  }
+}
