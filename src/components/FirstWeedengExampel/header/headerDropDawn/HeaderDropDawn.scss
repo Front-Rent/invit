@@ -1,0 +1,35 @@
+.drop-dawn {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: none;
+  &-burger-menu {
+    font-size: 30px;
+  }
+  .drop-dawn-cucak {
+    display: none;
+  }
+  &-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: 0.3s ease;
+    width: 100%;
+  }
+  &-menu.inactive {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-200px);
+    transition: 0.3s ease;
+    width: 100%;
+  }
+  .drop-dawn-menu-ul {
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-around;
+    color: black;
+  }
+}

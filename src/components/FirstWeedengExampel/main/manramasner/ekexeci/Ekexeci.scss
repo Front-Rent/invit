@@ -1,0 +1,26 @@
+.ekexeci {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 40px;
+
+  padding-bottom: 55px;
+
+  &-img {
+    width: 100%;
+  }
+  &-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-form {
+      .map {
+        width: 100%;
+        margin: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.manramasner {
+  padding-top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  text-align: center;
+
+  & > p {
+    font-size: 30px;
+  }
+  &-txt > p {
+    font-size: 20px;
+  }
+}
