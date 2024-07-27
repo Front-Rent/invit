@@ -49,7 +49,7 @@ const Hethashvark = () => {
     return () => {
       clearInterval(intervalRef.current);
     };
-  }, [dispatch]);
+  }, [dispatch, startTimer]);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
