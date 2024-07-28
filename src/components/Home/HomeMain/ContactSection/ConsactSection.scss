@@ -1,0 +1,48 @@
+.constact-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+  &-variants {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 250px;
+    & > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: space-around;
+      & > .icon {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .constact-section {
+    gap: 65px;
+  }
+  .constact-section-variants {
+    flex-direction: column;
+    gap: 60px;
+    top: 500px;
+    & > div {
+      gap: 15px;
+      & > .icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

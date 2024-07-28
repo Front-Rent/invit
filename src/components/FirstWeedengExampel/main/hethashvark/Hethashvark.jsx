@@ -1,5 +1,4 @@
 import { useEffect, useRef, useCallback } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useSpring, animated } from "@react-spring/web";
 import { useInView } from "react-intersection-observer";
@@ -17,9 +16,8 @@ const Hethashvark = () => {
 
   const { days, hours, minutes, seconds } = useSelector((state) => state.timer);
 
-  // Использование useCallback для мемоизации функции
   const startTimer = useCallback(() => {
-    const countdownDate = new Date("May 30 2025 00:00:00").getTime();
+    const countdownDate = new Date("February 3, 2025 00:00:00").getTime(); // исправленный формат
 
     intervalRef.current = setInterval(() => {
       const now = new Date().getTime();
@@ -46,12 +44,14 @@ const Hethashvark = () => {
         );
       }
     }, 1000);
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     startTimer();
     return () => {
-      clearInterval(intervalRef.current);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
   }, [startTimer]);
 

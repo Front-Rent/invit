@@ -1,0 +1,113 @@
+.yntrel-section {
+  width: 100%;
+  display: flex;
+  margin-top: 120px;
+  padding: 80px;
+  height: 455px;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  &-roteating {
+    width: 100%;
+    max-width: 1400px;
+    cursor: pointer;
+    &-box {
+      gap: 24px;
+      display: flex;
+      align-self: stretch;
+      transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(1deg) skew(0deg, 0deg);
+      align-items: center;
+      transition: 0.3s;
+      border-radius: 0;
+      justify-content: space-between;
+      transform-style: preserve-3d;
+      background-color: #aea7bf;
+      &:hover {
+        transform: scale3d(1.1, 1.1, 1.1);
+      }
+      &-content {
+        width: 100%;
+        display: flex;
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+          rotateY(0deg) rotateZ(-2deg) skew(0deg, 0deg);
+        align-items: center;
+        border-radius: 0;
+        justify-content: space-between;
+        transform-style: preserve-3d;
+        background-color: #ccc7d6;
+        &-text {
+          gap: 48px;
+          width: 100%;
+          display: flex;
+          transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+            rotateY(0deg) rotateZ(1deg) skew(0deg, 0deg);
+          align-items: center;
+          padding-top: 96px;
+          transition: 0.3s;
+          padding-left: 64px;
+          border-radius: 0;
+          padding-right: 64px;
+          padding-bottom: 96px;
+          &:hover {
+            color: white;
+            background-color: #000000;
+          }
+          &-txt {
+            gap: 24px;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          &-button {
+            gap: 24px;
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            & > button {
+              color: #e6ebe0;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              font-weight: bold;
+              background-color: #ed2a4f;
+              border: none;
+              padding: 8px 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1323px) {
+  .yntrel-section {
+    margin-top: 240px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .yntrel-section {
+    margin-top: 300px;
+    &-roteating-box-content-text {
+      flex-direction: column;
+      &-button > button {
+        padding: 10px 64px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .yntrel-section-roteating-box-content-text-txt {
+    & > h2 {
+      font-size: 18px;
+    }
+    & > p{
+      font-size: 13px;
+    }
+  }
+}

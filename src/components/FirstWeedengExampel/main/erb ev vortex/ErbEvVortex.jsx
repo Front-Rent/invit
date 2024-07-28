@@ -25,9 +25,9 @@ const ErbEvVortex = () => {
       <h2>Երբ և Որտեղ</h2>
       <p>Խնդրում եմ այս օրը ոչ մի բան մի պլանավորեք</p>
       <div className="erb-ev-vortex-or">
-        <span className="amis">Մայիս </span>
+        <span className="amis">Փետրվար </span>
         <div className="between-box">
-          <span className="shabatva-or">Ուրբաթ </span>
+          <span className="shabatva-or">Շաբաթ </span>
           <span className="or">30 </span>
           <span className="tari">2025 </span>
         </div>

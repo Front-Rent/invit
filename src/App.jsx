@@ -1,24 +1,15 @@
-// import Header from "./components/header/Header";
+import { Route, Routes } from "react-router-dom";
 
-// import Main from "./components/main/Main";
-
+import Weeding from "./components/Weeding/Weeding";
 import Home from "./components/Home/Home";
 
-import "./media/media.scss";
-
 import "./App.scss";
-import { Route, Routes } from "react-router-dom";
-import FirstWeedengExample from "./components/FirstWeedengExampel/FirstWeedengExample";
-// {
-//   /* <Header />
-//       <Main /> */
-// }
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/weedeng" element={<FirstWeedengExample />} />
+      <Route path="/weedeng" element={<Weeding />} />
     </Routes>
   );
 }

@@ -1,0 +1,98 @@
+.product-section {
+  padding: 80px;
+  padding-top: 160px;
+  width: 100%;
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: 1fr 1fr;
+  &-text {
+    gap: 24px;
+    top: 10%;
+    display: flex;
+    position: sticky;
+    align-items: flex-start;
+    flex-direction: column;
+    & > h2 {
+      font-size: 35px;
+      font-family: STIX Two Text;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+  }
+  &-poducts {
+    grid-area: span 2;
+    top: 10%;
+
+    & > .product:first-child,
+    & > .product:nth-child(3) {
+      position: sticky;
+      top: 10%;
+      transform: rotate(-2deg);
+      margin-bottom: 32px;
+      background-color: #ccc7d6;
+      padding: 32px;
+    }
+    & > .product:nth-child(2) {
+      position: sticky;
+      top: 10%;
+      transform: rotate(2deg);
+      background-color: #aea7bf;
+      margin-bottom: 32px;
+      padding: 32px;
+    }
+    & > .product {
+      //   position: relative;
+      gap: 24px;
+      display: flex;
+      flex-direction: column;
+      & > h2 {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+      & > h3 {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 40px;
+      }
+      & > p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .product-section {
+    padding: 40px;
+    padding-top: 80px;
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .product-section-text {
+    position: static; /* Disable sticky positioning */
+    top: auto;
+    & > h2 {
+      font-size: 25px;
+    }
+  }
+
+  .product-section-products {
+    grid-column: span 1; /* Adjust if needed */
+    top: auto;
+
+    & > .product {
+      position: static; /* Disable sticky positioning */
+      transform: rotate(0); /* Reset rotation */
+      margin-bottom: 16px;
+    }
+
+    & > .product:first-child,
+    & > .product:nth-child(2),
+    & > .product:nth-child(3) {
+      background-color: #eee; /* Adjust background color if needed */
+      padding: 16px;
+    }
+  }
+}

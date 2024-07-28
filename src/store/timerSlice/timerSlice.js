@@ -12,11 +12,10 @@ const timerSlice = createSlice({
   initialState,
   reducers: {
     updateTimer: (state, action) => {
-      const { days, hours, minutes, seconds } = action.payload;
-      state.days = days;
-      state.hours = hours;
-      state.minutes = minutes;
-      state.seconds = seconds;
+      state.days = action.payload.days;
+      state.hours = action.payload.hours;
+      state.minutes = action.payload.minutes;
+      state.seconds = action.payload.seconds;
     },
     resetTimer: (state) => {
       state.days = "00";
@@ -28,5 +27,4 @@ const timerSlice = createSlice({
 });
 
 export const { updateTimer, resetTimer } = timerSlice.actions;
-
 export default timerSlice.reducer;
