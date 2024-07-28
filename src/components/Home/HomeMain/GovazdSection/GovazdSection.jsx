@@ -17,17 +17,6 @@ const GovazdSection = () => {
     setActiveIndex(index);
   };
 
-  const getImageSrc = () => {
-    switch (activeIndex) {
-      case 1:
-        return webdesing;
-      case 2:
-        return professional;
-      default:
-        return govazd;
-    }
-  };
-
   useEffect(() => {
     const images = document.querySelectorAll(".govazd-section-img img");
     images.forEach((img) => img.classList.remove("visible"));
