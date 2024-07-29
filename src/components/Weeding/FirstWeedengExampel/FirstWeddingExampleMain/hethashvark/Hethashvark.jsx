@@ -44,7 +44,7 @@ const Hethashvark = () => {
         );
       }
     }, 1000);
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     startTimer();
