@@ -1,4 +1,4 @@
-import HomeHeader from "./HomeHeader/HomeHeader";
+import HomeHeader from "./HomeHeader/Header";
 import HomeMain from "./HomeMain/HomeMain";
 
 import "./Home.scss";

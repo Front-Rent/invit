@@ -13,7 +13,7 @@
     "cleave.js": "^1.6.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "framer-motion": "^11.3.17",
+    "framer-motion": "^11.3.19",
     "mongoose": "^8.5.1",
     "nodemailer": "^6.9.14",
     "react": "^18.3.1",

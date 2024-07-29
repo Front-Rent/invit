@@ -7,13 +7,13 @@ import store from "./store/store";
 import App from "./App";
 
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <Router>
     <Provider store={store}>
       <App />
     </Provider>
-  </BrowserRouter>
+  </Router>
 );

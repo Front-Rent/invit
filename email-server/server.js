@@ -66,7 +66,7 @@ app.post("/submit-form", async (req, res) => {
       from: process.env.EMAIL_USER,
       to: "romaparonyan1415@gmail.com",
       subject: `Դուք ունեք ևս ${guests} հյուրեր։`,
-      text: `Name: ${username}\nPhone: ${phoneNumber}\nGuests: ${guests}`,
+      text: `Անուն: ${username}\nՀեռախոսահամար: ${phoneNumber}\nԱնձնակազմ: ${guests}`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

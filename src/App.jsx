@@ -1,16 +1,25 @@
+import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-
-import Weeding from "./components/Weeding/Weeding";
-import Home from "./components/Home/Home";
 
 import "./App.scss";
 
+const HomePage = lazy(() => import("./pages/HomePage"));
+const WeddingPage = lazy(() => import("./pages/WeddingPage"));
+const BirthdayPage = lazy(() => import("./pages/BirthdayPage"));
+const FirstWeddingExample = lazy(() =>
+  import("./components/Weeding/FirstWeedengExampel/FirstWeedengExample")
+);
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/weedeng" element={<Weeding />} />
-    </Routes>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/wedding" element={<WeddingPage />} />
+        <Route path="/wedding/barev" element={<FirstWeddingExample />} />
+        <Route path="/birthday" element={<BirthdayPage />} />
+      </Routes>
+    </Suspense>
   );
 }
 
