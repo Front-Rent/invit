@@ -5,7 +5,7 @@ import Phone from "./Phone/Phone";
 
 const ConsactSection = () => {
   return (
-    <div className="constact-section">
+    <footer className="constact-section">
       <p>
         Մեր թիմն այստեղ է, որպեսզի օգնի ձեզ ցանկացած հարցում, որը կարող եք
         ունենալ:
@@ -18,7 +18,7 @@ const ConsactSection = () => {
         <Phone />
         <Location />
       </div>
-    </div>
+    </footer>
   );
 };
 

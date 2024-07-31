@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-import image1 from "../../../../assets/images/images.jpg";
-import image2 from "../../../../assets/images/images2.jpg";
-import image3 from "../../../../assets/images/images3.jpg";
-import image4 from "../../../../assets/images/images4.jpg";
+import image1 from "../../../../assets/images/WeddingImages/WeddingExampleImages/images.png";
+import image2 from "../../../../assets/images/WeddingImages/WeddingExampleImages/images2.png";
+import image3 from "../../../../assets/images/WeddingImages/WeddingExampleImages/images3.png";
+import image4 from "../../../../assets/images/WeddingImages/WeddingExampleImages/images4.png";
 
-import simvol from "../../../../assets/images/ornament.png";
+import simvol from "../../../../assets/images/WeddingImages/WeddingExampleImages/ornament.png";
 
 import "./Glxavor.scss";
 

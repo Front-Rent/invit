@@ -8,7 +8,7 @@ const Location = () => {
       <p>
         Մենք անհամբեր սպասում ենք ձեզ աջակցելու <br /> նաև մեր Գրասենյակում
       </p>
-      <span>Phnix Corporation </span>
+      <span>Phenix Corporation </span>
     </div>
   );
 };

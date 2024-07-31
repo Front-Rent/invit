@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Armenian:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Armenian:wght@100..900&display=swap");
+.second-wedding-example {
+  width: 1300px;
+  border-top: 1.5px solid;
+  border-bottom: 1.5px solid;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 80px;
+  & .countdown-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    color: #f07677;
+    text-align: center;
+    font-size: 70px;
+    padding: 50px 0px;
+    .countdown-item {
+      margin: 30px 50px;
+    }
+    & span,
+    p {
+      font-family: "Great Vibes", cursive;
+    }
+  }
+  & > h2:first-child {
+    position: absolute;
+    top: -20px;
+    background-color: white;
+    padding: 0 15px;
+    font-family: "Lora", serif;
+  }
+  & > h2:last-child {
+    position: absolute;
+    bottom: -15px;
+    background-color: white;
+    padding: 0 15px;
+    font-family: "Lora", serif;
+  }
+}

@@ -24,7 +24,7 @@ const DropDown = () => {
             <Link>Ծննդյան Հրավիրատոմսեր</Link>
           </li>
           <li>
-            <Link to="/weedeng">Հարսանեկան Հրավիրատոմսեր</Link>
+            <Link to="/wedding">Հարսանեկան Հրավիրատոմսեր</Link>
           </li>
           <li>
             <Link>Նշանադրության Հրավիրատոմսեր</Link>

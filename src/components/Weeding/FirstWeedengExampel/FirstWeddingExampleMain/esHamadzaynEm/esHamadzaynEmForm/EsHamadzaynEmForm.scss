@@ -7,17 +7,8 @@
   align-items: center;
   z-index: 1000;
   position: relative;
+  padding: 10px;
 
-  &-username {
-    border-radius: 2px 2px 0 0;
-    border-radius: 5px 5px 0px 0px / 5px 5px 0px 0px;
-  }
-  &-guests {
-    border-radius: 0px 0px 0px 0px;
-  }
-  &-phone {
-    border-radius: 0px 0px 0px 0px;
-  }
   &-username,
   &-guests,
   &-phone {
@@ -29,34 +20,30 @@
     border-bottom: 1px solid;
     outline: none;
   }
-}
 
-@media screen and (max-width: 1080px) {
-  .paper-content-username,
-  .paper-content-guests,
-  .paper-content-phone {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .paper-content-username,
-  .paper-content-guests,
-  .paper-content-phone {
-    width: 100%;
-    padding: 5px 20px 5px 10px;
-    font-size: 10px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .paper-content-username,
-  .paper-content-guests,
-  .paper-content-phone {
-    width: 100%;
+  @media screen and (max-width: 1080px) {
+    &-username,
+    &-guests,
+    &-phone {
+      width: 100%;
+    }
   }
 
-  .paper-content {
-    padding-top: 2px;
+  @media screen and (max-width: 700px) {
+    &-username,
+    &-guests,
+    &-phone {
+      width: 100%;
+      padding: 5px 20px 5px 10px;
+      font-size: 10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    &-username,
+    &-guests,
+    &-phone {
+      width: 100%;
+    }
   }
 }

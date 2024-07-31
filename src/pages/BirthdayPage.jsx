@@ -1,7 +1,7 @@
-import React from "react";
+import Birthday from "../components/Birthday/Birthday";
 
 const BirthdayPage = () => {
-  return <div>BirthdayPage</div>;
+  return <Birthday />;
 };
 
 export default BirthdayPage;

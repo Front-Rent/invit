@@ -1,10 +1,10 @@
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "@react-spring/web";
 
-import ekexeci from "../../../../../assets/images/ekexeci.jpg";
-import EkexeciMap from "./ekexeciMap/EkexeciMap";
+import ekexeci from "../../../../../assets/images/WeddingImages/WeddingExampleImages/ekexeci.png";
 
 import "./Ekexeci.scss";
+import { Link } from "react-router-dom";
 
 const Ekexeci = () => {
   const { ref, inView } = useInView({
@@ -14,15 +14,26 @@ const Ekexeci = () => {
 
   const props = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateX(0)" : "translateX(200px)",
-    config: { duration: 600 },
+    config: { duration: 1200 },
   });
+
   return (
     <animated.section className="ekexeci" ref={ref} style={props}>
       <div className="ekexeci-img">
         <img src={ekexeci} alt="Սուրբ Սարքիս Եկեղեցի" />
       </div>
-      <EkexeciMap className="ekexeci-map" />
+      <div className="ekexeci-txt">
+        <h3>Արարողությունը</h3>
+        <p>
+          <span>Շաբաթ, 28, 2019թ</span> <br /> <span>14:00-16:00</span>
+        </p>
+        <p>21 Իսրայելյան փողոց, Երևան 0015</p>
+        <p> +374 94 778199</p>
+
+        <Link to="/wedding/example1/ekexecimap">
+          <div className="loader"></div>
+        </Link>
+      </div>
     </animated.section>
   );
 };

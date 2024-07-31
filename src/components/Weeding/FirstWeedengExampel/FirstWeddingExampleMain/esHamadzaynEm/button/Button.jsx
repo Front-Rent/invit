@@ -2,8 +2,8 @@ import "./Button.scss";
 
 const Button = () => {
   return (
-    <div>
-      <button className="button">Ուղարկել հայտը</button>
+    <div className="button">
+      <button className="button-btn">Ուղարկել հայտը</button>
     </div>
   );
 };

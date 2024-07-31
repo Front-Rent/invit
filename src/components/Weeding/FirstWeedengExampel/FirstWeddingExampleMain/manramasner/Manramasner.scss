@@ -6,13 +6,18 @@
   flex-direction: column;
   gap: 50px;
   text-align: center;
+  background-color: #fafafa;
 
   & > p {
     font-size: 30px;
+    margin-bottom: 6px;
   }
   &-txt > p {
     font-size: 20px;
   }
+  &-detals {
+    margin-top: 50px;
+    display: flex;
+    gap: 150px;
+  }
 }
-
-

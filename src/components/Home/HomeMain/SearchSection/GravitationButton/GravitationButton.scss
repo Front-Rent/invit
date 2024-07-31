@@ -1,0 +1,27 @@
+// src/MagneticButton.scss
+.gravitation-button {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 15px 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  outline: none;
+
+  &:hover {
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gravitation-button {
+    display: none;
+    padding: 5px 15px;
+  }
+}

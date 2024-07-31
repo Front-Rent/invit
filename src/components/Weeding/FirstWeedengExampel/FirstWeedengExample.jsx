@@ -3,10 +3,10 @@ import WeddingFirstExampleHeader from "./WeddingFirstExampleHeader/WeddingFirstE
 
 const FirstWeddingExample = () => {
   return (
-    <div>
+    <>
       <WeddingFirstExampleHeader />
       <Main />
-    </div>
+    </>
   );
 };
 

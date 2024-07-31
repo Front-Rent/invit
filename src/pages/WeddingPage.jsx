@@ -4,11 +4,11 @@ import Wedding from "../components/Weeding/Weeding";
 
 const WeddingPage = () => {
   return (
-    <div>
+    <>
       <Layout>
         <Wedding />
       </Layout>
-    </div>
+    </>
   );
 };
 

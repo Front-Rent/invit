@@ -1,9 +1,9 @@
-import harsaniq1 from "../../../assets/images/wedding2.jpg";
-import atamhatik from "../../../assets/images/atamhatik.png";
-import mankakan from "../../../assets/images/children.jpg";
-import cnund from "../../../assets/images/birthday.jpg";
-import zang from "../../../assets/images/verjin zang.png";
-import harsaniq2 from "../../../assets/images/harsaniq2.jpg";
+import harsaniq1 from "../../../assets/images/HomeImages/wedding2.png";
+import atamhatik from "../../../assets/images/HomeImages/atamhatik.png";
+import mankakan from "../../../assets/images/HomeImages/children.png";
+import cnund from "../../../assets/images/HomeImages/birthday.png";
+import zang from "../../../assets/images/HomeImages/verjin zang.png";
+import harsaniq2 from "../../../assets/images/HomeImages/harsaniq2.png";
 
 import "./ScroolSection.scss";
 

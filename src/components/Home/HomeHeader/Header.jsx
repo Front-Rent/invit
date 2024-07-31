@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/HomeImages/logo.png";
+import DropDown from "./DropDown/DropDown";
 
 import "./Header.scss";
-import DropDown from "./DropDown/DropDown";
+import GravitationButton from "../HomeMain/SearchSection/GravitationButton/GravitationButton";
 
 const Header = () => {
   return (
@@ -23,9 +24,10 @@ const Header = () => {
         <li>Նշանադրության Հրավիրատոմսեր</li>
       </ul>
       <DropDown />
-      <div className="header-nav-phone">
+      {/* <div className="header-nav-phone">
         <p>+374 94 778199</p>
-      </div>
+      </div> */}
+      <GravitationButton text="+374 94 778199" />
     </nav>
   );
 };

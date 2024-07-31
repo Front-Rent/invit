@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-import govazd from "../../../assets/images/govazd.jpg";
-import webdesing from "../../../assets/images/webdesing.jpg";
-import professional from "../../../assets/images/professional.jpg";
+import govazd from "../../../assets/images/HomeImages/govazd.png";
+import webdesing from "../../../assets/images/HomeImages/webdesing.png";
+import professional from "../../../assets/images/HomeImages/professional.png";
 
 import FirstGovazd from "./FirstGovazd/FirstGovazd";
 import SecondGovazd from "./SecondGovazd/SecondGovazd";

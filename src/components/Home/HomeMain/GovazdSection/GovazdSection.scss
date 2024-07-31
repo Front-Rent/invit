@@ -11,7 +11,8 @@
     aspect-ratio: 16 / 9;
     object-fit: cover;
 
-    & > img {
+    & > img,
+    & > video {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -76,16 +77,20 @@
 @media screen and (max-width: 700px) {
   .govazd-section {
     padding: 60px;
+
     &-txt {
       height: 280px;
       width: 70%;
+
       &-nkaragir {
         height: 60px;
       }
+
       &-nkaragir-menu {
         & > h2 {
           font-size: 15px;
         }
+
         & > p {
           font-size: 10px;
         }
@@ -102,14 +107,18 @@
     &-txt {
       height: 280px;
       width: 70%;
+
       &-nkaragir {
         height: 60px;
       }
+
       &-nkaragir-menu {
         margin-left: 20px;
+
         & > h2 {
           font-size: 15px;
         }
+
         & > p {
           font-size: 10px;
         }

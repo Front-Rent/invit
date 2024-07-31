@@ -26,39 +26,11 @@ const EsHamadzaynEmForm = ({ handleHidden }) => {
     success,
   } = useSelector((state) => state.form);
 
-  const isValidName = (input) => {
-    const words = input.trim().split(" ");
-    return words.length >= 2 && words[0] !== "" && words[1] !== "";
-  };
-
-  const isValidPhoneNumber = (number) => {
-    const cleanedNumber = number.replace(/\D/g, "");
-    const regex = /^374(94|93|91|77|43|98|55|33|44|49)\d{6}$/;
-    console.log(cleanedNumber);
-    return regex.test(cleanedNumber);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isSubmitting) return;
     dispatch(setIsSubmitting(true));
-
-    if (!isValidName(usernameValue)) {
-      dispatch(
-        setError(
-          "Խնդրում ենք մուտքագրել ձեր անունն ու ազգանունը՝ բաժանված բացատով:"
-        )
-      );
-      dispatch(setIsSubmitting(false));
-      return;
-    }
-
-    if (!isValidPhoneNumber(phoneNumberValue)) {
-      dispatch(setError("Խնդրում ենք մուտքագրել ճիշտ հեռախոսահամար."));
-      dispatch(setIsSubmitting(false));
-      return;
-    }
 
     try {
       const response = await axios.post("http://localhost:5000/submit-form", {
@@ -67,16 +39,24 @@ const EsHamadzaynEmForm = ({ handleHidden }) => {
         guests: guestsValue,
       });
 
-      if (response.data.error) {
-        dispatch(setError(response.data.error));
-      } else {
+      if (response.status === 200) {
         dispatch(setSuccess("Форма успешно отправлена!"));
         dispatch(setError(""));
         dispatch(setIsSended(true));
         dispatch(resetForm());
         handleHidden();
+      } else {
+        dispatch(
+          setError(
+            response.data.error || "Произошла ошибка при отправке формы."
+          )
+        );
       }
     } catch (error) {
+      console.error(
+        "Ошибка при отправке формы:",
+        error.response ? error.response.data : error.message
+      );
       if (error.response && error.response.status === 400) {
         dispatch(setError(error.response.data));
       } else {

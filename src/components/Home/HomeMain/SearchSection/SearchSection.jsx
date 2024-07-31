@@ -1,3 +1,4 @@
+import GravitationButton from "./GravitationButton/GravitationButton";
 import "./SearchSection.scss";
 
 const SearchSection = () => {
@@ -11,7 +12,7 @@ const SearchSection = () => {
         միջոցով: Անկախ նրանից, թե դա ծննդյան, հարսանիքի, մկրտության կամ ցանկացած
         այլ տոնակատարության, մենք ունենք կատարյալ տարբերակներ ձեզ համար:
       </p>
-      <button>Փնտրել Տարբերակներ</button>
+      <GravitationButton text="Փնտրել Տարբերակներ" />
     </section>
   );
 };

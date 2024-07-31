@@ -1,9 +1,8 @@
-import RestoranMap from "./restoranMap/RestoranMap";
-
+import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "@react-spring/web";
 
-import Astfyan from "../../../../../assets/images/Astafyan.jpg";
+import restoran from "../../../../../assets/images/WeddingImages/WeddingExampleImages/restoran.png";
 
 import "./Restoran.scss";
 
@@ -15,17 +14,25 @@ const Restoran = () => {
 
   const props = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateX(0)" : "translateX(-200px)",
-    config: { duration: 600 },
+    config: { duration: 1200 },
   });
 
   return (
-    <animated.section ref={ref} style={props}>
-      <div className="restoran">
-        <div className="restoran-img">
-          <img src={Astfyan} alt="Սուրբ Սարքիս Եկեղեցի" />
-        </div>
-        <RestoranMap className="restoran-map" />
+    <animated.section className="restoran" ref={ref} style={props}>
+      <div className="restoran-img">
+        <img src={restoran} alt="Սուրբ Սարքիս Եկեղեցի" />
+      </div>
+      <div className="restoran-txt">
+        <h3>Արարողությունը</h3>
+        <p>
+          <span>Շաբաթ, 28, 2025թ</span> <br /> <span>16:00-22:00</span>
+        </p>
+        <p>Ջրվեժ 2-րդ թաղամաս 6/10</p>
+        <p> +374 94 778199</p>
+
+        <Link to="/wedding/example1/restoranmap">
+          <div className="loader"></div>
+        </Link>
       </div>
     </animated.section>
   );

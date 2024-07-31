@@ -2,27 +2,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-
-dotenv.config();
+const fs = require("fs");
+const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
-mongoose.connect("mongodb://localhost:27017/formDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const EMAIL_USER = "rparonyan00@gmail.com";
+const EMAIL_PASS = "ualj sfak wkqe yesj";
 
-const formSchema = new mongoose.Schema({
-  username: String,
-  phoneNumber: { type: String, unique: true },
-  guests: Number,
-  dateSubmitted: { type: Date, default: Date.now },
-});
-
-const Form = mongoose.model("Form", formSchema);
+const CURRENT_GUESTS_FILE_PATH = path.join(__dirname, "current_guests.txt");
+const TOTAL_GUESTS_FILE_PATH = path.join(__dirname, "total_guests.txt");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -30,54 +20,55 @@ app.use(bodyParser.json());
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: EMAIL_USER,
+    pass: EMAIL_PASS,
   },
 });
+
+const readFile = (filePath) => {
+  try {
+    const data = fs.readFileSync(filePath, "utf8");
+    return parseInt(data, 10) || 0;
+  } catch (err) {
+    return 0;
+  }
+};
+
+const writeFile = (filePath, data) => {
+  fs.writeFileSync(filePath, data.toString(), "utf8");
+};
 
 app.post("/submit-form", async (req, res) => {
   const { username, phoneNumber, guests } = req.body;
 
   if (!username || !phoneNumber || !guests) {
-    return res.status(400).send("Пожалуйста, заполните все поля.");
+    console.log("Ստուգեք. ոչ բոլոր դաշտերն են լրացված");
+    return res.status(400).send("Խնդրում ենք լրացնել բոլոր դաշտերը:");
   }
 
-  const phoneRegex = /^\+374(?:94|93|91|77|43|98|55|33|44|49)\d{6}$/;
-  if (!phoneRegex.test(phoneNumber.replace(/\D/g, ""))) {
-    return res.status(400).send("Неправильный формат номера телефона.");
-  }
+  const currentGuests = parseInt(guests, 10);
+  const totalGuests = readFile(TOTAL_GUESTS_FILE_PATH);
+  const updatedTotalGuests = totalGuests + currentGuests;
+  writeFile(TOTAL_GUESTS_FILE_PATH, updatedTotalGuests);
 
-  try {
-    const existingForm = await Form.findOne({ phoneNumber });
+  writeFile(CURRENT_GUESTS_FILE_PATH, currentGuests);
 
-    if (existingForm) {
-      return res.status(400).send("Этот номер телефона уже используется.");
+  const mailOptions = {
+    from: EMAIL_USER,
+    to: "romaparonyan14@gmail.com",
+    subject: `Դուք ունեք ևս ${currentGuests} հյուրեր։ (Ընդանուր հյուրերի քանակը։ ${updatedTotalGuests})`,
+    text: `Անուն: ${username}\n 
+           Հեռախոսահամար: ${phoneNumber}\n 
+           Անձնակազմ: ${guests}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error("Ошибка при отправке почты:", error);
+      return res.status(500).send(error.toString());
     }
-
-    const newForm = new Form({
-      username,
-      phoneNumber,
-      guests,
-    });
-
-    await newForm.save();
-
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: "romaparonyan1415@gmail.com",
-      subject: `Դուք ունեք ևս ${guests} հյուրեր։`,
-      text: `Անուն: ${username}\nՀեռախոսահամար: ${phoneNumber}\nԱնձնակազմ: ${guests}`,
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return res.status(500).send(error.toString());
-      }
-      res.status(200).send("Email sent: " + info.response);
-    });
-  } catch (error) {
-    res.status(500).send("Ошибка при сохранении данных: " + error.toString());
-  }
+    res.status(200).send("Email sent: " + info.response);
+  });
 });
 
 app.listen(port, () => {

@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 
 import WeddingButton from "./WeddingButton/WeddingButton";
 
-import orinak1 from "../assets/images/orinak 1.jpg";
+import orinak1 from "../assets/images/WeddingImages/orinak 1.png";
+import orinak2 from "../assets/images/WeddingImages/orinak 2.png";
 
 import "./Weeding.scss";
 
@@ -35,11 +36,17 @@ const Wedding = () => {
       >
         <motion.div className="example" variants={itemVariants}>
           <img src={orinak1} alt="" />
-          <Link to="/wedding/barev">
+          <Link to="/wedding/example1">
             <WeddingButton />
           </Link>
         </motion.div>
         <motion.div className="example" variants={itemVariants}>
+          <img src={orinak2} alt="" />
+          <Link to="/wedding/example2">
+            <WeddingButton />
+          </Link>
+        </motion.div>
+        {/* <motion.div className="example" variants={itemVariants}>
           <img src="" alt="" />
         </motion.div>
         <motion.div className="example" variants={itemVariants}>
@@ -59,10 +66,7 @@ const Wedding = () => {
         </motion.div>
         <motion.div className="example" variants={itemVariants}>
           <img src="" alt="" />
-        </motion.div>
-        <motion.div className="example" variants={itemVariants}>
-          <img src="" alt="" />
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </main>
   );
